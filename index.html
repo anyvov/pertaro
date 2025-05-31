@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 펫 타로</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+
+            <div class="header01">
+                <h1 class="info">오늘의 펫 타로</h1>
+                <p>당신의 강아지 마음을 타로로 들여다보세요</p>
+            </div>
+
+            <div class="header02">
+                <h1 class="info">🔮 오늘의 펫 타로 소개</h1>
+                <p class="description">
+                    당신의 소중한 반려견이 오늘 어떤 기분인지, 무슨 생각을 하고 있는지 궁금하신가요? <br>  
+                    펫 타로를 통해 당신의 강아지의 마음을 들여다보세요! <br><br>
+                    타로 카드는 현재 상황과 에너지를 비추는 거울과 같습니다.
+                    반려견에 집중하면서 카드를 선택하면, 그 순간의 반려견의 마음과 필요를 알 수 있답니다. <br><br> 
+                    아래의 카드 중 한 장을 선택하고, 당신의 댕댕이가 전하고 싶은 메시지를 확인해보세요!
+                </p>
+            </div>
+            <div class="header03">
+                <h1 class="info">🐕 오늘의 강아지 타로 보기</h1>
+                <p class="subtitle">"카드를 선택하세요. 신중하게 생각하시고 총 1장의 카드를 선택해주세요"</p>
+            </div>
+
+        </header>
+        
+        <div class="cards-fan">
+            <!-- 카드들이 여기에 동적으로 추가됩니다 -->
+        </div>
+
+        <!-- 모달 -->
+        <div class="modal" id="cardModal">
+            <div class="modal-content">
+                <button class="close-modal">&times;</button>
+                <div class="modal-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="paw-pattern"></div>
+                        </div>
+                        <div class="card-back">
+                            <img id="cardImage" src="" alt="타로 카드">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-info">
+                    <h2 id="cardName"></h2>
+                    <p id="cardInterpretation"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>Copyright 2025. 펫타로. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

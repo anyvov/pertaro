@@ -1,0 +1,472 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+    min-height: 100vh;
+    /* padding: 2rem; */
+    color: #2c3e50;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffffff20"><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="24">🐾</text></svg>');
+    background-size: 100px;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    /* margin-bottom: 3rem; */
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.info {
+    font-size: 2.8rem;
+    color: #373737;
+    margin-bottom: 2rem;
+    font-weight: 800;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    letter-spacing: -0.5px;
+    /* background: linear-gradient(45deg, #2c3e50, #3498db);
+    -webkit-background-clip: text; */
+    /* -webkit-text-fill-color: transparent; */
+    /* background-clip: text; */
+    position: relative;
+    display: inline-block;
+}
+
+.info::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 8px;
+    width: 100%;
+    height: 12px;
+    background-color: #ffd166;
+    z-index: -1;
+    opacity: 0.5;
+    border-radius: 6px;
+    bottom: 5px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+    display: inline-block;
+    background-color: skyblue;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.header01 {
+    background-image: url(./images/main.png);
+    width: 100%;
+    height: 60vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 100px;
+}
+
+.header01 h1 {
+    margin-bottom: 0px;
+    font-size: 4rem;
+    font-weight: 800;
+}
+
+.header01 h1, .header01 p {
+    color: #fff;
+}
+
+.header02 {
+    margin-bottom: 80px;
+}
+
+.header03 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.description{
+    color: #6B6D80;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 40px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);;
+}
+
+footer{
+    text-align: center;
+    margin-top: 3rem;
+    color: #7f8c8d;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+    background-color: #f8f8f8;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    /* position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0; */
+    width: 100%;
+    z-index: 1000;
+}
+
+/* 부채꼴 레이아웃 */
+.cards-fan {
+    position: relative;
+    /* height: 400px; */
+    margin: 0 auto;
+    perspective: 1000px;
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+}
+
+.card {
+    position: relative;
+    width: 200px;
+    height: 350px;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.card:hover:not(.selected) {
+    transform: translateY(-10px);
+    z-index: 10;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 15px;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.card-front {
+    background: linear-gradient(45deg, #f8f8f8 0%, #ffffff 99%, #2a3a7c 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.paw-pattern {
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="24">🐾</text></svg>');
+    background-size: 40px;
+    opacity: 0.15;
+    background-repeat: repeat;
+    background-position: center;
+}
+
+.card-back {
+    background: white;
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 모달 스타일 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.active {
+    display: flex;
+    opacity: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    position: relative;
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    max-width: 800px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal.active .modal-content {
+    transform: scale(1);
+}
+
+.modal-card {
+    width: 240px;
+    height: 420px;
+    perspective: 1000px;
+}
+
+.modal-card .card-inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+
+.modal-card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.modal-card .card-front,
+.modal-card .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.modal-card .card-front {
+    background: linear-gradient(45deg, #f8f8f8 0%, #ffffff 99%, #2a3a7c 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-card .card-back {
+    background: white;
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-card .card-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-info {
+    text-align: center;
+    color: #2c3e50;
+}
+
+.modal-info h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.modal-info p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #34495e;
+}
+
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #2c3e50;
+    cursor: pointer;
+    padding: 0.5rem;
+    line-height: 1;
+    transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+    color: #e74c3c;
+}
+
+/* 선택된 카드 효과 */
+.card.selected {
+    transform: translateY(-30px) scale(1.1) !important;
+    z-index: 20;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* 결과보기 버튼 컨테이너 제거 */
+
+@media (max-width: 768px) {
+    body {
+        /* padding: 0.5rem; */
+    }
+
+    .container {
+        padding: 0 10px;
+    }
+
+    .cards-fan {
+        height: auto;
+        min-height: 300px;
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .card {
+        width: calc(50% - 8px);
+        height: 280px;
+        margin-bottom: 8px;
+    }
+
+    .modal-content {
+        padding: 1.5rem;
+        gap: 1.5rem;
+        width: 95%;
+    }
+
+    .modal-card {
+        width: 200px;
+        height: 350px;
+    }
+
+    .modal-info h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .modal-info p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .close-modal {
+        top: 0.5rem;
+        right: 0.5rem;
+        font-size: 1.5rem;
+    }
+
+    header {
+        margin-bottom: 1.5rem;
+    }
+
+    .info {
+        font-size: 1.8rem;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+    }
+
+    .header01 h1{
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: calc(50% - 6px);
+        height: 240px;
+    }
+
+    .cards-fan {
+        gap: 6px;
+    }
+
+    .modal-content {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .modal-card {
+        width: 160px;
+        height: 280px;
+    }
+
+    .modal-info h2 {
+        font-size: 1.3rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .modal-info p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+
+    .close-modal {
+        font-size: 1.3rem;
+    }
+
+    .info {
+        font-size: 1.5rem;
+    }
+
+    .subtitle {
+        font-size: 0.8rem;
+    }
+} 
