@@ -133,16 +133,16 @@ footer{
     font-size: 0.8rem;
     font-weight: 500;
     letter-spacing: 0.5px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+    /* text-shadow: 1px 1px 2px rgba(0,0,0,0.05); */
     background-color: #f8f8f8;
     padding: 2rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    /* box-shadow: 0 4px 8px rgba(0,0,0,0.1); */
     /* position: fixed;
     bottom: 0;
     left: 0;
     right: 0; */
     width: 100%;
-    z-index: 1000;
+    /* z-index: 1000; */
 }
 
 /* 부채꼴 레이아웃 */
